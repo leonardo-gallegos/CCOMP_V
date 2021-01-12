@@ -1,4 +1,4 @@
-# git clone REPO_URL
-# git add NAME_OF_THE_FILE
-# git commit -m "MESSAGE"
-# git push
+# git clone REPO_URL --> Copia el cotenido del repositorio remoto en el repositorio local (máquina local)
+# git add NAME_OF_THE_FILE --> añade un cambio del directorio de trabajo en el entorno de ensayo (staging)
+# git commit -m "MESSAGE" --> Captura una instantánea de los cambios preparados en ese momento del proyecto
+# git push --> Carga contenido del repositorio local a un repositorio remoto
