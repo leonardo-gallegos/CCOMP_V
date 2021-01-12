@@ -1,1 +1,4 @@
-
+# git clone REPO_URL
+# git add NAME_OF_THE_FILE
+# git commit -m "MESSAGE"
+# git push
