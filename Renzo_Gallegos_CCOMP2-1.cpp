@@ -1,239 +1,322 @@
-
 #include <iostream>
-#include <iomanip>
 
 using namespace std;
 
-// Exercise 2.16
+// Exercise 4.24
+// Part 1
+/*
+int x = 5;
+int y = 15; 
+if ( y < 10 )
+if ( x > 10 )
+cout << "XxXxX" << endl;
+else
+cout << "YxYxY" << endl;
+cout << "OoOoO" << endl;
+*/
 int main()
 {
-    int a;
-    int b;
+    int x = 5;
+    int y = 15;
+    // OoOoO
+    int x = 5;
+    int y = 15;
+    // YxYxY
+    // OoOoO
 
-    cout << "Enter first number: ";
-    cin >> a;
-
-    cout << "Enter second number: ";
-    cin >> b;
-
-    cout << "===================================" << endl;
-    cout << left << setw(15) << "   Sum:"
-         << a << "  +  " << b << "  = " << right << setw(4) << a + b << endl;
-    cout << left << setw(15) << "   Product:"
-         << a << "  x  " << b << "  = " << right << setw(4) << a * b << endl;
-    cout << left << setw(15) << "   Difference:"
-         << a << "  -  " << b << "  = " << right << setw(4) << a - b << endl;
-    cout << left << setw(15) << "   Quotient:"
-         << a << "  /  " << b << "  = " << right << setw(4) << a / b << endl;
-    cout << "===================================" << endl;
+    if (y < 10)
+        if (x > 10)
+            cout << "XxXxX" << endl;
+        else
+            cout << "YxYxY" << endl;
+    cout << "OoOoO" << endl;
 }
 
-// Exercise 2.18
+// Exercise 4.24
+// Part 2
+/*
+if ( y < 10 )
+{
+if ( x > 10 )
+cout << "XxXxX" << endl;
+}
+else
+{
+cout << "YxYxY" << endl;
+cout << "OoOoO" << endl;
+}
+*/
 int main()
 {
-    int a;
-    int b;
+    int x = 5;
+    int y = 15;
+    //YxYxY
+    //OoOoO
+    int x = 15;
+    int y = 5;
+    //XxXxX
 
-    cout << "Enter first integer: ";
-    cin >> a;
-
-    cout << "Enter second integer: ";
-    cin >> b;
-
-    if (a > b)
+    if (y < 10)
     {
-        cout << a << " is larger.";
-    }
-    else if (b > a)
-    {
-        cout << b << " is larger.";
+        if (x > 10)
+            cout << "XxXxX" << endl;
     }
     else
     {
-        cout << "These numbers are equal.";
+        cout << "YxYxY" << endl;
+        cout << "OoOoO" << endl;
     }
 }
 
-// Exercise 2.20
+// Exercise 4.26
 int main()
 {
-    int a;
+    int size;
 
-    cout << "Enter circle's radius: ";
-    cin >> a;
+    cout << "Enter size of the side: ";
+    cin >> size;
 
-    cout << left << setw(15) << "Diameter:" << 2 * a << endl;
-    cout << left << setw(15) << "Circumference:" << 2 * a * 3.14159 << endl;
-    cout << left << setw(15) << "Area:" << 3.14159 * a * a << endl;
+    if (size <= 20 && size >= 1)
+    {
+        for (int fil = 0; fil != size; fil++)
+        {
+            for (int col = 0; col != size; col++)
+            {
+                if (fil == 0 || fil == size - 1 || col == 0 || col == size - 1)
+                    cout << "*";
+                else
+                    cout << " ";
+            }
+            cout << endl;
+        }
+    }
 }
 
-// Exercise 2.22
+// Exercise 4.27
 int main()
 {
-    cout << "*****\n****\n***\n**\n*\n " << endl;
+    int num;
+
+    cout << "Enter an five-digit integer: ";
+    cin >> num;
+    
+    int size = 0;
+    int n = num;
+    do
+    {
+        ++size;
+        n /= 10;
+    } while (n);
+    if(size == 5)
+    {
+        int dig;
+        int rev = 0;
+        int x = num;
+
+        do
+        {
+            dig = num % 10;
+            rev = (rev * 10) + dig;
+            num = num / 10;
+        } while (num != 0);
+
+        if (x == rev)
+            cout << x <<" is a palindrome.";
+        else
+            cout << x << " is not a palindrome.";
+    }
+    else
+    {
+        cout << "The number must have five digits" << endl;
+    }
 }
 
-// Exercise 2.24
+// Exercise 4.28
 int main()
 {
-    int a;
-    int b;
+    int bin;
 
-    cout << "Enter first integer: ";
+    cout << "Enter a binary number: ";
+    cin >> bin;
+
+    int size = 0;
+    int n = bin;
+    do
+    {
+        ++size;
+        n /= 10;
+    } while (n);
+    int dig;
+    int res;
+    int exp = 0;
+    int ex = exp;
+    int val;
+    int result = 1;
+    int sum = 0;
+
+    do
+    {
+        dig = bin % 10;
+        res = bin / 10;
+        bin = res;
+        result = 1;
+        ex = exp;
+        while (ex != 0)
+        {
+            result *= 2;
+            --ex;
+        }
+        val = dig * result;
+        sum = sum + val;
+        exp++;
+    } while (bin != 0);
+
+    cout << "Decimal value: " << sum << endl;
+}
+
+// Exercise 4.30
+int main()
+{
+    int x = 0, y = 1;
+    while (true)
+    {
+        if (x == 0)
+        {
+            cout << x << endl;
+            cout << y << endl;
+        }
+
+        x = x + y;
+        cout << x << endl;
+
+        y = x + y;
+        cout << y << endl;
+    }
+}
+
+// Exercise 4.32
+int main()
+{
+    int x = 2, y = 3;
+    cout << ++x + y;
+}
+
+// Exercise 4.33
+int main()
+{
+    double a, b, c;
+    cout << "Enter first side: ";
     cin >> a;
-
-    cout << "Enter second integer: ";
+    cout << "Enter second side: ";
     cin >> b;
-
-    if (a % 2 == 1)
+    cout << "Enter third side: ";
+    cin >> c;
+    if (a + b > c && a + c > b && b + c > a)
     {
-        cout << a << " is an odd number." << endl;
+        cout << a << ", " << b << " and " << c << " represent the sides of a triangle.";
     }
-    else if (b % 2 == 1)
+    else
     {
-        cout << b << " is an odd number" << endl;
-    }
-    else if ((a + b) % 2 == 1)
-    {
-        cout << a + b << " is an odd number" << endl;
+        cout << a << ", " << b << " and " << c << " don't represent the sides of a triangle.";
     }
 }
 
-// Exercise 2.26
+// Exercise 4.35
 // Part 1
 int main()
 {
-    cout << "* * * * * * * *" << endl;
-    cout << " * * * * * * * *" << endl;
-    cout << "* * * * * * * *" << endl;
-    cout << " * * * * * * * *" << endl;
-    cout << "* * * * * * * *" << endl;
-    cout << " * * * * * * * *" << endl;
-    cout << "* * * * * * * *" << endl;
-    cout << " * * * * * * * *" << endl;
+    int x;
+    int i = 1;
+    int fact = 1;
+    cout << "Enter a number: ";
+    cin >> x;
+
+    if (x != 0 && x != 1)
+    {
+        while (x >= i)
+        {
+            fact = fact * i;
+            i = i + 1;
+        }
+        cout << x << "!"
+             << " = "
+             << fact;
+    }
+    else
+    {
+        cout << x << "!"
+             << " = "
+             << "1";
+    }
 }
+
+// Exercise 4.35
 // Part 2
 int main()
 {
-    string a;
-    a = "* * * * * * * *\n * * * * * * * *";
-    cout << a << endl
-         << a << endl
-         << a << endl
-         << a;
-}
+    int x = 1;
+    int i = 1;
+    int n;
+    double sum = 1;
+    double fact = 1;
+    cout << "Enter an accuracy for epsilon: ";
+    cin >> n;
 
-// Exercise 2.28
-int main()
-{
-    int a;
-
-    cout << "Enter an integer: ";
-    cin >> a;
-
-    cout << a % (a / 10) << "  "
-         << (a / 10) % (a / 100) << "  "
-         << (a / 100) % (a / 1000) << "  "
-         << (a / 1000);
-}
-
-// Exercise 2.30
-int main()
-{
-    int height;
-    int weight;
-
-    // El problema quiere que usemos INT, es por eso
-    // que usé centimetros ya que de esta forma puedo
-    // usar un número entero como 185 cm y no 1.85 m
-    cout << "Enter your height in centimeters: ";
-    cin >> height;
-
-    cout << "Enter your weight in kilograms: ";
-    cin >> weight;
-
-    int BMI = weight * 10000 / (height * height);
-
-    cout << "Your BMI is: " << BMI << endl;
-    cout << "=====================================" << endl;
-    cout << "BMI VALUES" << endl;
-    cout << "Underweight: \tless than 18.5" << endl;
-    cout << "Normal: \tbetween 18.5 and 24.9" << endl;
-    cout << "Overweight: \tbetween 25 and 29.9" << endl;
-    cout << "Obeset: \t30 or greater" << endl;
-    cout << "=====================================" << endl;
-}
-
-// Exercise 2.32
-int main()
-{
-    int age;
-    int stnd;
-    int tnk;
-    int glh;
-    int nes;
-    int max;
-    int min;
-
-    cout << "Enter your age: ";
-    cin >> age;
-
-    stnd = 220 - age;
-    tnk = 208 - 0.7 * age;
-    glh = 207 - 0.7 * age;
-    nes = 211 - 0.64 * age;
-
-    cout << "===================" << endl;
-    cout << "MHR VALUES" << endl;
-    cout << "Standard: "
-         << "\t" << stnd << endl;
-    cout << "Tanaka: "
-         << "\t" << tnk << endl;
-    cout << "Gellish: "
-         << "\t" << glh << endl;
-    cout << "Nes: "
-         << "\t\t" << nes << endl;
-    cout << "====================" << endl;
-
-    if (stnd > tnk && stnd > glh && stnd > nes)
+    for (int a = 1; a <= n; a++)
     {
-        max = stnd;
-    }
-    else
-    {
-        if (tnk > stnd && tnk > glh && tnk > nes)
+        if (x != 0 && x != 1)
         {
-            max = tnk;
-        }
-        else
-        {
-            if (glh > stnd && glh > tnk && glh > nes)
+            while (x >= i)
             {
-                max = glh;
+                fact = fact * i;
+                i = i + 1;
             }
-            else
-                max = nes;
         }
+        sum = sum + 1 / fact;
+        x = x + 1;
     }
-    if (stnd < tnk && stnd < glh && stnd < nes)
+    cout << sum;
+}
+
+// Exercise 4.35
+// Part 3
+int main()
+{
+    int x = 1;
+    int i = 1;
+    int n;
+    int p;
+    double result = 1;
+    int exp = 1;
+    int ex = exp;
+    double sum = 1;
+    double fact = 1;
+    cout << "Enter an accuracy: ";
+    cin >> n;
+
+    cout << "Enter an exponent: ";
+    cin >> p;
+
+    for (int a = 1; a <= n; a++)
     {
-        min = stnd;
-    }
-    else
-    {
-        if (tnk < stnd && tnk < glh && tnk < nes)
+        if (x != 0 && x != 1)
         {
-            min = tnk;
-        }
-        else
-        {
-            if (glh < stnd && glh < tnk && glh < nes)
+            while (x >= i)
             {
-                min = glh;
+                fact = fact * i;
+                i = i + 1;
             }
-            else
-                min = nes;
         }
+        result = 1;
+        ex = exp;
+        while (ex != 0)
+        {
+            result *= p;
+            --ex;
+        }
+        sum = sum + result / fact;
+        x = x + 1;
+        exp++;
     }
-    cout << "Your MHR value must be between " << min << " and " << max;
+    cout << sum;
 }
