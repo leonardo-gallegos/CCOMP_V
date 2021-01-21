@@ -9,24 +9,29 @@ using namespace std;
 
 class Point
 {
-public:
+private:
     double x, y;
+
+public:
     Point() : x(0), y(0) {}
     Point(double x, double y) : x(x), y(y) {}
-};
 
-double distance(Point p1, Point p2)
-{
-    double dist = sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
-    return dist;
-}
+    double distance(Point p2)
+    {
+        Point p1;
+        p1.x = x;
+        p1.y = y;
+        double dist = sqrt(pow(p1.x - p2.x, 2) + pow(p1.y - p2.y, 2));
+        return dist;
+    }
+};
 
 int main()
 {
     Point p1(1, 3);
     Point p2(7, 7);
 
-    cout << "Distance between p1 and p2: " << distance(p1, p2);
+    cout << "Distance between p1 and p2: " << p1.distance(p2);
 }
 
 // Exercise 6.49
