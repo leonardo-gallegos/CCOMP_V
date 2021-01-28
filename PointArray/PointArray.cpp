@@ -104,8 +104,8 @@ void PointArray::insert(const int pos, const Point &p)
 
 void PointArray::remove(const int pos)
 {
-    Point *tmp = new Point[size];
     size--;
+    Point *tmp = new Point[size];
     for (int i{0}; i < size + 1; i++)
     {
         if (pos == i)
