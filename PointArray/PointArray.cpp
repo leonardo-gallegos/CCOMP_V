@@ -81,7 +81,7 @@ void PointArray::modify(const int pos, const Point &p)
 
 void PointArray::insert(const int pos, const Point &p)
 {
-    Point *tmp = new Point[size];
+    Point *tmp = new Point[size + 1];
     size++;
     for (int i{0}; i < size; i++)
     {
